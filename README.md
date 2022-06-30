@@ -1,8 +1,11 @@
 ﻿# PointCompare_openpose
-a singal python script for comparing the different angles between differnt pictures
+a single Python script (or peoject in the future) for comparing the different angles between differnt pictures
 ## Notice
-need out put a json file which outputed from openpose
-json file usually like:
+To run the process.py, you need to output a JSON file which is output from openpose
+### More informations about output
+https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/02_output.md
+## Some examples
+* JSON files usually have some data like:
 ```
 {"version":1.3,"people":[{"person_id":[-1],
     "pose_keypoints_2d":["point data ....."],
@@ -25,4 +28,8 @@ json file usually like:
         "17":[],"18":[158.806,115.794,0.898122],"19":[100.514,449.15,0.460775],
         "20":[107.485,450.568,0.486681],"21":[217.295,426.87,0.0516792,149.164,439.452,0.599773],
         "22":[163.049,426.989,0.419062],"23":[168.576,424.189,0.352371],"24":[206.149,421.405,0.65861]}]}
+```
+* and to coustom JSON file, you should change the code in this place
+```
+result=saveResultToDict('512-1.json','angle.json')
 ```

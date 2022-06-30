@@ -1,7 +1,8 @@
 ﻿# PointCompare_openpose
 a single Python script (or project in the future) for comparing the different point angles between different pictures.
 ## Notice
-To run the process.py, you need to output a JSON file which is output from openpose
+* To run the process.py, you need to output a JSON file, which is output from openpose
+* You need a JSON file (usually called angle.json) to save the angles that you want to calculate
 ### More informations about output
 https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/02_output.md
 ## Some examples

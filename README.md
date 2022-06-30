@@ -29,7 +29,7 @@ https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/02_outp
         "20":[107.485,450.568,0.486681],"21":[217.295,426.87,0.0516792,149.164,439.452,0.599773],
         "22":[163.049,426.989,0.419062],"23":[168.576,424.189,0.352371],"24":[206.149,421.405,0.65861]}]}
 ```
-* and to coustom JSON file, you should change the code in this place
+* and to customize JSON file, you should change the code in this place
 ```
 result=saveResultToDict('512-1.json','angle.json')
 ```

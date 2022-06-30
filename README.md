@@ -1,5 +1,5 @@
 ﻿# PointCompare_openpose
-a single Python script (or peoject in the future) for comparing the different angles between differnt pictures
+a single Python script (or project in the future) for comparing the different point angles between different pictures.
 ## Notice
 To run the process.py, you need to output a JSON file which is output from openpose
 ### More informations about output

@@ -55,9 +55,9 @@ https://github.com/amanwalia123/KeyFramesExtraction
     startAnalyse(openpose_path,data_path,resultJson_path,resultImage_path)
 ```
 * paramter meaning
- openpose_path: openpose release file root (GPU recommended)
- you can get it though: https://github.com/CMU-Perceptual-Computing-Lab/openpose/releases
- you need make sure the program can find the path of folder (bin) under it
+* openpose_path: openpose release file root (GPU recommended)
+you can get it though: https://github.com/CMU-Perceptual-Computing-Lab/openpose/releases
+you need make sure the program can find the path of folder (bin) under it
 * data_path: to save key frame images in this path
 * resultJson_path: to JSON files related key frame images in this path
 * resultImage_path: to save result images in this path

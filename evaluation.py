@@ -10,7 +10,7 @@ def loadAllJSONFileName(dir_path,flag):
     print(filename)
     return filename
 
-def startAnalyze(openpose_path,data_path,resultJson_path,resultImage_path):
+def startAnalyse(openpose_path,data_path,resultJson_path,resultImage_path):
     shell_run=".\\bin\OpenPoseDemo.exe --image_dir "+ data_path + \
             " --write_json "+ resultJson_path + \
             " --write_images "+ resultImage_path +\
@@ -35,13 +35,13 @@ def compareJson(data_path,standard_path,angle_path):
 
 def toEvaluation(result_dict):
     number=[]
-    for list in result_dict:
-        number.append(min(list))
+    for list in result_dict.values():
+        number.append(max(list))
     print(number)
     final_evaluation=0
     for value in number:
         final_evaluation=final_evaluation+value
-    final_evaluation=final_evaluation/number.__len__
+    final_evaluation=final_evaluation/len(number)
     print(final_evaluation)
 
 
@@ -51,7 +51,8 @@ if __name__=="__main__":
     data_path=".\PointCompare_openpose\\frame\\"
     resultJson_path=".\PointCompare_openpose\\json\\"
     resultImage_path=".\PointCompare_openpose\\result_img\\"
-    startAnalyze(openpose_path,data_path,resultJson_path,resultImage_path)
+    
+    startAnalyse(openpose_path,data_path,resultJson_path,resultImage_path)
     """
     dict=compareJson("json","standard","angle.json")
     toEvaluation(dict)

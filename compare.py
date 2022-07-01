@@ -76,13 +76,18 @@ def saveResultToDict(file,angle_file):
     return angle_result
 
 def compareKey(angle_data,angle_standard):
-    different_count=0
+    evaluate_percentage=0
+    evaluate_number=[]
     for count in range(0,13):
-        if(((angle_data[count]-angle_standard[count])>=5.0) or ((angle_data[count]-angle_standard[count])<=-5.0)):
-            different_count=different_count+1
-    evaluate_percentage=different_count/13
+        if(((angle_data[count]-angle_standard[count])>=45.0) or ((angle_data[count]-angle_standard[count])<=-45.0)):
+            evaluate_number.append(0.0)
+        else:
+            evaluate_number.append((abs(angle_standard[count]-(angle_data[count]-angle_standard[count])))/angle_standard[count])
+    for number in evaluate_number:
+        evaluate_percentage=evaluate_percentage+number
+    evaluate_percentage=evaluate_percentage/13
     print("----------------RESULT--------------")
-    print("角度不一致率："+ str(evaluate_percentage))
+    print("角度评价分数："+ str(evaluate_percentage))
 
     return evaluate_percentage
 

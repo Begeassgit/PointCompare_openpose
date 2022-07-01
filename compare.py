@@ -1,5 +1,8 @@
+from asyncio.windows_events import NULL
 import json
 import math
+
+from numpy import imag
 
 
 def readFile(name):
@@ -10,7 +13,10 @@ def readFile(name):
 def dataProcess(data):
     data_after={}
     for x in range(0,15):
-        data_after[x]=data['part_candidates'][0][str(x)][0:2]
+        if len(data['part_candidates'][0][str(x)])==0:
+            data_after[x]=[0,0]
+        else:
+            data_after[x]=data['part_candidates'][0][str(x)][0:2]
     #将part_candidates的数据放入新字典data_after 数据只存坐标
     #数据只采集到关键点14 去除15至24
     print("------Finish Data Preprocess------")
@@ -24,10 +30,13 @@ def calculateAngle(data,point_one,point_two,point_three,result_angle):
     :param point_three 点3
     :param result_angle 选择结果角
     """
+    """
     print("------所算坐标点为------")
     print(data[point_one][0],data[point_one][1])
     print(data[point_two][0],data[point_two][1])
     print(data[point_three][0],data[point_three][1])
+    """
+    
 
     side_a=math.sqrt((data[point_two][0] - data[point_three][0])*
     (data[point_two][0] - data[point_three][0])+
@@ -75,16 +84,31 @@ def compareKey(angle_data,angle_standard):
     print("----------------RESULT--------------")
     print("角度不一致率："+ str(evaluate_percentage))
 
+    return evaluate_percentage
+
+def toCompare(image_json,standard_json,angle_json):
+    """
+    parameter order: data,standard,angle
+    """
+    result=saveResultToDict(image_json,angle_json)
+    standard=saveResultToDict(standard_json,angle_json)
+    print("--------------角度结果---------------")
+    print(result)
+    print("------------标准角度结果--------------")
+    print(standard)
+    return compareKey(result,standard)
+    
+
 
 if __name__=="__main__":
     print("------计算比对图------")
-    result=saveResultToDict('json/512-1.json','angle.json')
+    result=saveResultToDict('json/frame_132_keypoints.json','angle.json')
     
     print("------------------------------------------")
     print("------------------------------------------")
 
     print("------计算标准图------")
-    standard=saveResultToDict('json/512.json','angle.json')
+    standard=saveResultToDict('standard/frame_11_keypoints.json','angle.json')
 
     print("--------------角度结果---------------")
     print(result)

@@ -78,13 +78,13 @@ def compareKey(angle_data,angle_standard):
 
 if __name__=="__main__":
     print("------计算比对图------")
-    result=saveResultToDict('512-1.json','angle.json')
+    result=saveResultToDict('json/512-1.json','angle.json')
     
     print("------------------------------------------")
     print("------------------------------------------")
 
     print("------计算标准图------")
-    standard=saveResultToDict('512.json','angle.json')
+    standard=saveResultToDict('json/512.json','angle.json')
 
     print("--------------角度结果---------------")
     print(result)

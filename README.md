@@ -34,3 +34,6 @@ https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/02_outp
 ```
 result=saveResultToDict('512-1.json','angle.json')
 ```
+
+### add a github project to finish key frames extraction:
+https://github.com/amanwalia123/KeyFramesExtraction

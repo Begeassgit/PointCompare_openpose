@@ -46,14 +46,20 @@ def toEvaluation(result_dict):
 
 
 if __name__=="__main__":
-    """
-    openpose_path="D:\openpose-1.7.0 gpu\openpose\\"
-    data_path=".\PointCompare_openpose\\frame\\"
-    resultJson_path=".\PointCompare_openpose\\json\\"
-    resultImage_path=".\PointCompare_openpose\\result_img\\"
+
+    print("In put a number to select a function")
+    print("1-----key frame excavation")
+    print("2-----evaluation")
     
-    startAnalyse(openpose_path,data_path,resultJson_path,resultImage_path)
-    """
-    dict=compareJson("json","standard","angle.json")
-    toEvaluation(dict)
+    select_func=input()
+    if select_func==1:
+        openpose_path="D:\openpose-1.7.0 gpu\openpose\\"
+        data_path=".\PointCompare_openpose\\frame\\"
+        resultJson_path=".\PointCompare_openpose\\json\\"
+        resultImage_path=".\PointCompare_openpose\\result_img\\"
+    
+        startAnalyse(openpose_path,data_path,resultJson_path,resultImage_path)
+    else:
+        dict=compareJson("json","standard","angle.json")
+        toEvaluation(dict)
     

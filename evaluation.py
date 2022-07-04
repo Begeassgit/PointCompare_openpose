@@ -48,7 +48,7 @@ def toEvaluation(result_dict):
 if __name__=="__main__":
 
     print("In put a number to select a function")
-    print("1-----key frame excavation")
+    print("1-----key frame extraction")
     print("2-----evaluation")
     
     select_func=input()

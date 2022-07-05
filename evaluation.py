@@ -10,6 +10,13 @@ def loadAllJSONFileName(dir_path,flag):
     print(filename)
     return filename
 
+def startExtraction(py_path,video_path,save_path,frame_num):
+    shell_run="python scene_div.py "+ video_path + \
+            " "+ save_path + \
+            " "+ frame_num
+    process=subprocess.Popen(shell_run,cwd=py_path,shell=True,stdout=subprocess.PIPE,encoding="GBK")
+    process.communicate()
+
 def startAnalyse(openpose_path,data_path,resultJson_path,resultImage_path):
     shell_run=".\\bin\OpenPoseDemo.exe --image_dir "+ data_path + \
             " --write_json "+ resultJson_path + \
@@ -49,10 +56,18 @@ if __name__=="__main__":
 
     print("In put a number to select a function")
     print("1-----key frame extraction")
-    print("2-----evaluation")
+    print("2-----run openpose")
+    print("3-----evaluation")
     
     select_func=input()
-    if select_func==1:
+    print(select_func)
+    if select_func=="1":
+        scene_div_path="D:\openpose-1.7.0 gpu\openpose\PointCompare_openpose\\"
+        frame_save_path=".\\frame\\"
+        video_path=".\\video\\512.mp4"
+        startExtraction(scene_div_path,video_path,frame_save_path,"10")
+
+    elif select_func=="2":
         openpose_path="D:\openpose-1.7.0 gpu\openpose\\"
         data_path=".\PointCompare_openpose\\frame\\"
         resultJson_path=".\PointCompare_openpose\\json\\"

@@ -98,7 +98,7 @@ def compareKey(angle_data,angle_standard):
         if(((angle_data[count]-angle_standard[count])>=45.0) or ((angle_data[count]-angle_standard[count])<=-45.0)):
             evaluate_number.append(0.0)
         else:
-            evaluate_number.append((abs(angle_standard[count]-(angle_data[count]-angle_standard[count])))/angle_standard[count])
+            evaluate_number.append((angle_standard[count]-abs(angle_data[count]-angle_standard[count]))/angle_standard[count])
     for number in evaluate_number:
         evaluate_percentage=evaluate_percentage+number
     evaluate_percentage=evaluate_percentage/13

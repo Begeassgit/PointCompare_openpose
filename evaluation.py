@@ -33,10 +33,11 @@ def compareJson(data_path,standard_path,angle_path):
     key=0
     for standard in standard_files:
         compare_temp.clear()
-        compare_result[key]=compare_temp
         key=key+1
         for data in data_files:
             compare_temp.append(compare.toCompare(data_path+"/"+data,standard_path+"/"+standard,angle_path))
+            
+        compare_result[key]=compare_temp.copy()    
         
     return compare_result
 

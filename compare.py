@@ -9,7 +9,26 @@ def readFile(name):
    
 def dataProcess(data):
     data_after={}
-    for x in range(0,15):
+
+    if len(data['part_candidates'][0]['0'])==0:
+        if len(data['part_candidates'][0]['17'])==0:
+            point17=[0,0]
+        else:
+            point17=data['part_candidates'][0]['17'][0:2]
+    
+        if len(data['part_candidates'][0]['18'])==0:
+            point18=[0,0]
+        else:
+            point18=data['part_candidates'][0]['18'][0:2]
+
+        x_0=(point17[0]+point18[0])/2.0
+        y_0=(point17[1]+point18[1])/2.0
+
+        data_after[0]=[x_0,y_0]
+    else:
+        data_after[0]=data['part_candidates'][0]['0'][0:2]
+
+    for x in range(1,15):
         if len(data['part_candidates'][0][str(x)])==0:
             data_after[x]=[0,0]
         else:
@@ -110,7 +129,7 @@ if __name__=="__main__":
     print("------------------------------------------")
 
     print("------计算标准图------")
-    standard=saveResultToDict('standard/frame_11_keypoints.json','angle.json')
+    standard=saveResultToDict('standard/000000000108_keypoints.json','angle.json')
 
     print("--------------角度结果---------------")
     print(result)

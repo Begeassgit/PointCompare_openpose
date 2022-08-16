@@ -84,3 +84,26 @@ toEvaluation(dict)
 [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 1.0
 ```
+
+### Updates about one in all program
+* Now you can finish key frames extraction, comparing, and evaluation through evaluation.py by selecting a function.
+* But you still need to customise your file path manually.
+* Postition:
+```
+    if select_func=="1":
+        scene_div_path="D:\openpose-1.7.0 gpu\openpose\PointCompare_openpose\\"
+        frame_save_path=".\\frame\\"
+        video_path=".\\video\\512.mp4"
+        startExtraction(scene_div_path,video_path,frame_save_path,"10")
+
+    elif select_func=="2":
+        openpose_path="D:\openpose-1.7.0 gpu\openpose\\"
+        data_path=".\PointCompare_openpose\\frame\\"
+        resultJson_path=".\PointCompare_openpose\\json\\"
+        resultImage_path=".\PointCompare_openpose\\result_img\\"
+    
+        startAnalyse(openpose_path,data_path,resultJson_path,resultImage_path)
+    else:
+        dict=compareJson("json","standard","angle.json")
+        toEvaluation(dict)
+```

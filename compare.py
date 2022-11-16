@@ -9,7 +9,9 @@ def readFile(name):
    
 def dataProcess(data):
     data_after={}
+    data_temp_accurate={}
 
+    """ abandon
     if len(data['part_candidates'][0]['0'])==0:
         if len(data['part_candidates'][0]['17'])==0:
             point17=[0,0]
@@ -27,12 +29,27 @@ def dataProcess(data):
         data_after[0]=[x_0,y_0]
     else:
         data_after[0]=data['part_candidates'][0]['0'][0:2]
+    """
+    
+    for x in range(0,15):
+        if len(data['part_candidates'][0][str(x)])>3:
+            data_temp_accurate=data['part_candidates'][0][str(x)][2::3]
+            accurate=max(data_temp_accurate)
+            position=data['part_candidates'][0][str(x)].index(accurate)
+            data_after[x]=[data['part_candidates'][0][str(x)][position-2],data['part_candidates'][0][str(x)][position-1]]
+        elif len(data['part_candidates'][0][str(x)])==0:
+            data_after[x]=[0,0]
+        else:
+            data_after[x]=data['part_candidates'][0][str(x)][0:2]
 
+    """ abandon
     for x in range(1,15):
         if len(data['part_candidates'][0][str(x)])==0:
             data_after[x]=[0,0]
         else:
             data_after[x]=data['part_candidates'][0][str(x)][0:2]
+    """
+    
     #将part_candidates的数据放入新字典data_after 数据只存坐标
     #数据只采集到关键点14 去除15至24
     print("------Finish Data Preprocess------")
